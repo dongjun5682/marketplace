@@ -25,8 +25,7 @@ public class UserService {
         }
         //비밀번호 암호화 로직 필수
         String encode = passwordEncoder.encode(requestDto.getPassword());
-        //검증 방법
-        // passwordEncoder.matches("검증할 비밀번호", "기존 비밀번호");
+
         User user = User.builder()
                 .name(requestDto.getName())
                 .email(requestDto.getEmail())
@@ -36,9 +35,7 @@ public class UserService {
         userRepository.insertUser(user);
 
     }
-
     public boolean checkIsUserExist(String email){
         return userRepository.findByEmail(email).isPresent();
     }
-
 }
