@@ -7,7 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Getter
-public class LoginRequestDto {
+public class LoginRequestDTO {
 
     @NotBlank(message = "이메일을 입력해주세요.")
     @Email(message = "이메일 양식을 지켜주세요.")
@@ -17,7 +17,7 @@ public class LoginRequestDto {
     private final String password;
 
     @Builder
-    public LoginRequestDto(String email, String password) {
+    public LoginRequestDTO(String email, String password) {
         this.email = email;
         this.password = password;
     }

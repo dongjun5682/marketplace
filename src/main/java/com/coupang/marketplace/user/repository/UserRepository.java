@@ -12,5 +12,6 @@ public interface UserRepository {
     void insertUser(User user);
     Optional<User> findByEmail(String email);
 
+    User findByUserInfo(long userId);
 
 }

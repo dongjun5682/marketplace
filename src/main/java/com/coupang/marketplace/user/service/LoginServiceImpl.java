@@ -1,7 +1,7 @@
 package com.coupang.marketplace.user.service;
 
 import com.coupang.marketplace.global.SessionKey;
-import com.coupang.marketplace.user.controller.dto.LoginRequestDto;
+import com.coupang.marketplace.user.controller.dto.LoginRequestDTO;
 import com.coupang.marketplace.user.domain.User;
 import com.coupang.marketplace.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class LoginServiceImpl implements LoginService{
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public void login(LoginRequestDto dto) {
+    public void login(LoginRequestDTO dto) {
         if(!userRepository.findByEmail(dto.getEmail()).isPresent()){
             throw new IllegalArgumentException("존재하지 않는 이메일입니다.");
         }

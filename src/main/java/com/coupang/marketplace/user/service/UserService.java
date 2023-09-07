@@ -1,6 +1,6 @@
 package com.coupang.marketplace.user.service;
 
-import com.coupang.marketplace.user.controller.dto.SignUpRequestDto;
+import com.coupang.marketplace.user.controller.dto.SignUpRequestDTO;
 import com.coupang.marketplace.user.domain.User;
 import com.coupang.marketplace.user.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,7 +17,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void join(SignUpRequestDto requestDto) {
+    public void join(SignUpRequestDTO requestDto) {
 
         //동일한 유저 있는지 체크 로직 필수 parameter -> requestDto.email
         if (checkIsUserExist(requestDto.getEmail())){
@@ -37,5 +37,9 @@ public class UserService {
     }
     public boolean checkIsUserExist(String email){
         return userRepository.findByEmail(email).isPresent();
+    }
+
+    public User userInfoResponse(long loginUserId){
+        return userRepository.findByUserInfo(loginUserId);
     }
 }
